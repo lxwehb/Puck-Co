@@ -228,8 +228,28 @@
         .email-content h4 { font-family:'Fredoka',sans-serif; font-size:1.5rem; font-weight:600; margin-bottom:1.5rem; color:var(--dark-text); }
         .email-address { font-family:'Fredoka',sans-serif; font-size:1.3rem; font-weight:600; color:var(--primary-blue); margin:1rem 0; word-break:break-all; }
         .email-instructions { color:var(--dark-text); opacity:.8; margin-bottom:1.5rem; font-weight:400; }
-        .copy-btn { background:var(--gold); color:var(--dark-text); border:none; padding:.75rem 1.5rem; border-radius:1rem; font-weight:700; cursor:pointer; transition:all .2s ease; font-family:'Fredoka',sans-serif; margin-top:1rem; }
-        .copy-btn:hover { background:#c19d2e; transform:translateY(-2px); }
+        .copy-btn {
+            background: #ffd700;
+            color: #2d3748;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Fredoka', sans-serif;
+            margin-top: 1rem;
+        }
+
+        .copy-btn:hover {
+            background: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .copy-btn.copied {
+            background: #4caf50;
+            color: #ffffff;
+        }
 
         /* Footer */
         footer {
@@ -502,11 +522,9 @@
             <span class="close-modal" id="closeModal">&times;</span>
             <h4 id="email-modal-title">Contact Us</h4>
             <p id="email-modal-instructions">Copy the email address below to send us a message:</p>
-            <p class="email-address" style="color: #2b75a9; background-color: #ffffff; padding: 0.5rem; border-radius: 4px;">
-                <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#109;&#121;&#64;&#x70;&#x75;&#x63;&#107;&#x61;&#x6e;&#x64;&#x63;&#x6f;&#x2e;&#99;&#111;&#109;" style="color: inherit; text-decoration: none;">
-                    &#x6d;&#x79;&#x40;&#x70;&#x75;&#x63;&#x6b;&#x61;&#x6e;&#x64;&#x63;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;
-                </a>
-            </p>
+            <p class="email-address"><a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#109;&#121;&#64;&#x70;&#x75;&#x63;&#107;&#x61;&#110;&#100;&#x63;&#111;&#x2e;&#99;&#111;&#109;">
+          &#x6d;&#x79;&#x40;&#x70;&#x75;&#x63;&#x6b;&#x61;&#x6e;&#x64;&#x63;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;
+      </a></p>
             <button class="copy-btn" id="copyEmail">Copy Email</button>
         </div>
     </div>
@@ -675,8 +693,8 @@
     <script>
         // Aggiorno lo stile del pulsante e dell'email
         const emailElement = document.querySelector('.email-address a');
-        emailElement.style.color = '#fff';
-        emailElement.style.backgroundColor = '#4caf50';
+        emailElement.style.color = '#2b75a9';
+        emailElement.style.backgroundColor = '#fff';
         emailElement.style.padding = '5px 10px';
         emailElement.style.borderRadius = '5px';
         emailElement.style.textDecoration = 'none';
