@@ -222,6 +222,9 @@
           gap: 1.75rem;
         }
         .book-card {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* Ensures spacing between elements */
           background: var(--snow-white);
           border-radius: 1.25rem;
           overflow: hidden;
@@ -246,9 +249,23 @@
           color: var(--dark-text);
         }
         .book-card .btn {
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 1rem; /* Further reduced horizontal padding to make the button narrower */
           font-size: 0.95rem;
-          margin: 0 0.75rem 1rem;
+          margin: 0 0.5rem 1rem;
+          margin-top: auto; /* Pushes the button to the bottom */
+          margin-bottom: 0.5rem; /* Keeps it 0.5rem from the bottom edge */
+        }
+        .book-card .book-description {
+          padding: 0 0.75rem;
+          font-size: 0.9rem;
+          color: var(--dark-text);
+          margin-bottom: 0.5rem;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          line-clamp: 3; /* Standard property for compatibility */
         }
 
         /* === MODALE DETTAGLIO LIBRO === */
@@ -806,6 +823,7 @@
                 card.innerHTML = `
                     <img src="${book.cover}" alt="${book.title}">
                     <h4>${book.title}</h4>
+                    <p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
                     <button class="btn btn-secondary detail-btn" data-id="${book.id}">Detail</button>
                 `;
                 container.appendChild(card);
