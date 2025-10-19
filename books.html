@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books • Puck&Co.</title>
+    <link rel="icon" href="assets/img/puck&co_favicon.png">
+    <style>
+        /* === COPIA ESATTA DEL TUO CSS DA INDEX.HTML === */
+        .footer-privacy-link {
+          position: absolute;
+          right: 2.5rem;
+          bottom: 2.5rem;
+          font-size: 0.95rem;
+          color: var(--primary-blue);
+          text-decoration: underline;
+          cursor: pointer;
+          z-index: 10;
+        }
+        @media (max-width: 600px) {
+          .footer-privacy-link {
+            right: 1.2rem;
+            bottom: 1.2rem;
+            font-size: 0.9rem;
+          }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-blue:#3182bc; --gold:#D4AF37; --snow-white:#FFFFFF; --ice-gray:#F0F8FF; --light-gray:#E6F2FF; --dark-text:#2D3748; }
+        :root { --header-height: 88px; }
+        html { height:100%; }
+        body { font-family:'Inter',sans-serif; background:var(--snow-white); color:var(--dark-text); line-height:1.6; min-height:100vh; display:flex; flex-direction:column; overflow-y:scroll; }
+        .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .responsive-img { width: 100%; height: auto; display: block; max-width: 100%; }
+        .header { background:var(--snow-white); box-shadow:0 2px 15px rgba(49,130,188,.2); position:sticky; top:0; z-index:100; height:var(--header-height); overflow:hidden; }
+        .header-container { display:flex; justify-content:space-between; align-items:center; padding:0 2rem; height:100%; }
+        .logo { display:flex; align-items:center; gap:1rem; text-decoration:none; height:100%; align-items:center; }
+        .nav { display:flex; gap:2rem; }
+        .nav a { color:var(--dark-text); text-decoration:none; font-weight:600; transition:all .2s ease; position:relative; }
+        .nav a:hover { color:var(--primary-blue); transform:translateY(-1px); }
+        .nav a[aria-current="page"] { color:var(--primary-blue); font-weight:700; }
+        .nav a::after { content:''; position:absolute; bottom:-8px; left:0; width:0; height:2px; background:var(--primary-blue); transition:width .2s ease; }
+        .nav a:hover::after, .nav a[aria-current="page"]::after { width:100%; }
+        .language-selector { position:relative; transform:translateY(10px); width: 80px; }
+        .language-static { display:flex; align-items:center; gap:.5rem; font-weight:700; color:var(--dark-text); }
+        .language-static img { width:20px; height:15px; vertical-align:middle; }
+        .language-selector { position: relative; }
+        #language-toggle { display:flex; align-items:center; gap:.5rem; background:transparent; border:1px solid transparent; padding:.25rem .5rem; border-radius:.5rem; cursor:pointer; font-weight:700; }
+        #language-toggle .lang-flag { width:20px; height:15px; }
+        #language-list { position:absolute; right:0; top:calc(100% + .5rem); background:var(--snow-white); border:1px solid rgba(0,0,0,.08); box-shadow:0 8px 24px rgba(0,0,0,.08); border-radius:.5rem; list-style:none; padding:.25rem 0; margin:0; display:none; min-width:160px; z-index:1200; }
+        #language-list[aria-hidden="false"], #language-list.show { display:block; }
+        .lang-item { padding:.5rem 1rem; display:flex; align-items:center; gap:.5rem; cursor:pointer; white-space:nowrap; border-radius:1rem; transition: background .12s ease, transform .08s ease, box-shadow .12s ease; }
+        .lang-item:hover, .lang-item:focus { background:var(--ice-gray); box-shadow: 0 8px 18px rgba(0,0,0,0.06); }
+        .lang-item:active { transform: translateY(1px); }
+        .lang-item.selected { font-weight:700; }
+        @media (max-width:768px){ #language-list { right: 1rem; left: 1rem; min-width: auto; } }
+        .hero { padding:6rem 0; background:linear-gradient(135deg, var(--ice-gray) 0%, var(--snow-white) 100%); position:relative; overflow:hidden; }
+        .hero::before { content:''; position:absolute; top:-50px; right:-50px; width:200px; height:200px; background:var(--gold); border-radius:50%; opacity:.1; }
+        .hero::after { content:''; position:absolute; bottom:-80px; left:-80px; width:300px; height:300px; background:var(--primary-blue); border-radius:50%; opacity:.05; }
+        .hero h1 { font-family:'Fredoka',sans-serif; font-size:3.5rem; font-weight:700; line-height:1.1; margin-bottom:1.5rem; color:var(--dark-text); letter-spacing:-1px; }
+        .hero h1 span { color:var(--primary-blue); }
+        .hero p { font-size:1.25rem; color:var(--dark-text); margin-bottom:2.5rem; font-weight:400; opacity:.9; }
+        .hero-buttons { display:flex; gap:1.5rem; }
+        .btn { padding:1rem 2.5rem; border-radius:2rem; font-weight:600; text-decoration:none; display:inline-block; font-size:1.1rem; transition:all .3s ease; text-align:center; border:2px solid transparent; }
+        .btn-primary { background:var(--primary-blue); color:var(--snow-white); box-shadow:0 6px 15px rgba(49,130,188,.4); }
+        .btn-primary:hover { background:#256a99; transform:translateY(-3px); box-shadow:0 10px 25px rgba(49,130,188,.6); }
+        .btn-secondary { background:transparent; color:var(--primary-blue); border-color:var(--primary-blue); }
+        .btn-secondary:hover { background:var(--primary-blue); color:var(--snow-white); transform:translateY(-3px); box-shadow:0 10px 25px rgba(49,130,188,.4); }
+        footer { background:var(--dark-text); color:var(--snow-white); padding:3rem 0; text-align:center; margin-top:auto; }
+        .footer-content { max-width:600px; margin:0 auto; position: relative; }
+        .footer-logo { display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:1.5rem; }
+        .footer-logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        .footer-text { font-size:.95rem; opacity:.8; font-weight:400; }
+        .footer-wrapper { position: relative; }
+        .privacy-container { position: absolute; right: 1.5rem; bottom: 1.25rem; }
+        .privacy-container .footer-privacy-link { display: inline-block; color: var(--snow-white); padding: 0; text-decoration: none; font-weight: 400; cursor: pointer; white-space: nowrap; }
+        @media (max-width: 768px) {
+          .privacy-container { position: static; margin-top: 1rem; text-align: center; }
+          .privacy-container .footer-privacy-link { border-radius: .6rem; }
+        }
+        main { flex: 1 0 auto; }
+        #site-header { min-height: 88px; }
+        @media (max-width: 768px) { #site-header { min-height: 120px; } }
+        @media (max-width:480px){
+          .container { padding:0 1.5rem; }
+          .hero { padding:4rem 0; }
+        }
+
+        /* === STILI SPECIFICI PER BOOKS === */
+        .books-page {
+          padding: 4rem 0 2rem;
+        }
+        .books-layout {
+          display: flex;
+          gap: 2.5rem;
+        }
+        @media (max-width: 900px) {
+          .books-layout {
+            flex-direction: column;
+          }
+        }
+        .categories-sidebar {
+          width: 280px;
+          flex-shrink: 0;
+        }
+        @media (max-width: 900px) {
+          .categories-sidebar {
+            width: 100%;
+          }
+        }
+        .category-item {
+          margin-bottom: 1.25rem;
+        }
+        .category-header {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--dark-text);
+          padding: 0.75rem 0;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid var(--light-gray);
+        }
+        .category-header:hover {
+          color: var(--primary-blue);
+        }
+        .category-header::after {
+          content: "▶";
+          color: var(--primary-blue);
+          font-size: 0.9rem;
+          transition: transform 0.2s ease;
+        }
+        .category-item.open .category-header::after {
+          transform: rotate(90deg);
+        }
+        .subcategories,
+        .sub-subcategories,
+        .sub-sub-subcategories,
+        .sub-sub-sub-subcategories {
+          list-style: none;
+          padding-left: 1.25rem;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease;
+        }
+        .category-item.open .subcategories { max-height: 500px; }
+        .sub-subcategories.open { max-height: 400px; }
+        .sub-sub-subcategories.open { max-height: 300px; }
+        .sub-sub-sub-subcategories.open { max-height: 200px; }
+
+        .subcategory-link,
+        .sub-sub-link,
+        .sub-sub-sub-link {
+          display: block;
+          padding: 0.4rem 0;
+          color: var(--dark-text);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.95rem;
+          transition: color 0.2s ease;
+        }
+        .subcategory-link:hover,
+        .sub-sub-link:hover,
+        .sub-sub-sub-link:hover,
+        .subcategory-link.active,
+        .sub-sub-link.active,
+        .sub-sub-sub-link.active {
+          color: var(--primary-blue);
+          font-weight: 600;
+        }
+
+        .subcategory-header,
+        .sub-sub-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.5rem 0;
+          cursor: pointer;
+          color: var(--dark-text);
+          font-weight: 500;
+        }
+        .submenu-toggle {
+          color: var(--primary-blue);
+          font-size: 0.8rem;
+          transition: transform 0.2s ease;
+        }
+
+        .books-content {
+          flex: 1;
+        }
+        .books-banner {
+          width: 100%;
+          height: 200px;
+          margin-bottom: 2.5rem;
+          border-radius: 1.25rem;
+          overflow: hidden;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+        .books-banner img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .books-slider,
+        .books-grid-section {
+          margin-bottom: 2.5rem;
+        }
+        .slider-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 1.5rem;
+          margin-bottom: 1.25rem;
+          color: var(--dark-text);
+        }
+        .books-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          gap: 1.75rem;
+        }
+        .book-card {
+          background: var(--snow-white);
+          border-radius: 1.25rem;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          text-align: center;
+        }
+        .book-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        .book-card img {
+          width: 100%;
+          aspect-ratio: 3/4;
+          object-fit: cover;
+          display: block;
+        }
+        .book-card h4 {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 1.1rem;
+          padding: 1rem 0.75rem 0.5rem;
+          color: var(--dark-text);
+        }
+        .book-card .btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.95rem;
+          margin: 0 0.75rem 1rem;
+        }
+
+        /* === MODALE DETTAGLIO LIBRO === */
+        .book-detail-modal {
+          display: none;
+          position: fixed;
+          z-index: 3000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.7);
+          overflow: auto;
+        }
+        .modal-content {
+          background: var(--snow-white);
+          margin: 5% auto;
+          padding: 2rem;
+          border-radius: 1.5rem;
+          width: 90%;
+          max-width: 1000px;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+          position: relative;
+          animation: modalFadeIn 0.4s ease;
+        }
+        @keyframes modalFadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .close-modal {
+          position: absolute;
+          top: 1.25rem;
+          right: 1.25rem;
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: var(--dark-text);
+          cursor: pointer;
+          transition: color 0.2s;
+        }
+        .close-modal:hover { color: var(--primary-blue); }
+
+        .modal-body {
+          display: flex;
+          gap: 2rem;
+        }
+        @media (max-width: 768px) {
+          .modal-body { flex-direction: column; }
+        }
+
+        .modal-image-section {
+          flex: 1;
+          text-align: center;
+          position: relative;
+        }
+        .main-image {
+          width: 100%;
+          max-height: 400px;
+          object-fit: contain;
+          border-radius: 1rem;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+          margin-bottom: 1rem;
+          transition: opacity 0.3s ease;
+        }
+        .gallery-nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0,0,0,0.5);
+          color: white;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+        .gallery-nav:hover {
+          background: rgba(0,0,0,0.7);
+          transform: translateY(-50%) scale(1.1);
+        }
+        .gallery-nav.prev {
+          left: 10px;
+        }
+        .gallery-nav.next {
+          right: 10px;
+        }
+        .image-counter {
+          position: absolute;
+          bottom: 10px;
+          right: 15px;
+          background: rgba(0,0,0,0.6);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 12px;
+          font-size: 0.85rem;
+          font-weight: 500;
+        }
+        .thumbnails {
+          display: flex;
+          gap: 0.75rem;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-top: 1rem;
+        }
+        .thumbnail {
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+          border-radius: 0.75rem;
+          cursor: pointer;
+          border: 3px solid transparent;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .thumbnail:hover {
+          border-color: var(--gold);
+          transform: scale(1.1);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .thumbnail.active {
+          border-color: var(--primary-blue);
+          transform: scale(1.08);
+          box-shadow: 0 6px 20px rgba(49,130,188,0.3);
+        }
+        .thumbnail.active:hover {
+          border-color: var(--primary-blue);
+          transform: scale(1.12);
+        }
+
+        .modal-info-section {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .modal-title {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 1.8rem;
+          color: var(--dark-text);
+          margin-bottom: 1rem;
+        }
+        .modal-description {
+          font-size: 1.05rem;
+          line-height: 1.7;
+          margin-bottom: 1.5rem;
+          color: var(--dark-text);
+        }
+        .modal-meta {
+          background: var(--ice-gray);
+          padding: 1.25rem;
+          border-radius: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        .modal-meta h4 {
+          font-family: 'Fredoka', sans-serif;
+          font-size: 1.1rem;
+          margin-bottom: 0.5rem;
+          color: var(--primary-blue);
+        }
+        .modal-meta p {
+          margin: 0;
+          font-size: 1rem;
+          color: var(--dark-text);
+        }
+        .modal-amazon-btn {
+          align-self: flex-start;
+          padding: 0.75rem 2rem;
+          font-size: 1.1rem;
+          background: var(--primary-blue);
+          color: white;
+          text-decoration: none;
+          border-radius: 2rem;
+          font-weight: 600;
+          transition: all 0.3s;
+          display: inline-block;
+        }
+        .modal-amazon-btn:hover {
+          background: #256a99;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(49,130,188,0.4);
+        }
+        .featured-detail-btn {
+          background: var(--primary-blue) !important;
+          color: #fff !important;
+          border: 2px solid var(--primary-blue) !important;
+          transition: all 0.2s;
+        }
+        .featured-detail-btn:hover {
+          background: transparent !important;
+          color: var(--primary-blue) !important;
+          border: 2px solid var(--primary-blue) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/puck&co.png" class="responsive-img" alt="Puck&Co." />
+            </a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="books.html" aria-current="page">Books</a>
+                <a href="index.html#attivita">Free Resources</a>
+                <a href="index.html#contatti">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="books-page">
+            <div class="container">
+                <h1 class="section-title" style="font-family:'Fredoka',sans-serif; text-align:center; margin-bottom:2.5rem; color:var(--dark-text);">Our Books</h1>
+                
+                <div class="books-layout">
+                    <!-- Colonna sinistra: Libro in evidenza + Categorie -->
+                    <aside class="categories-sidebar">
+                        <!-- Libro in evidenza -->
+                        <div class="featured-book" style="margin-bottom: 2rem; background: var(--ice-gray); border-radius: 1.25rem; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(49,130,188,0.1);">
+                            <div style="font-family:'Fredoka',sans-serif; font-size:1.1rem; color:var(--primary-blue); margin-bottom:0.75rem;">Featured Book</div>
+                            <img src="" alt="" class="featured-cover" style="max-width: 160px; width: 100%; margin: 0 auto 1rem; border-radius: 0.5rem; box-shadow: 0 6px 16px rgba(0,0,0,0.1);">
+                            <h3 class="featured-title" style="font-family:'Fredoka',sans-serif; font-size:1.25rem; margin-bottom:1.2rem; color:var(--dark-text);"></h3>
+                            <button class="btn btn-secondary featured-detail-btn" style="margin-top:0.5rem; font-size:0.95rem; padding:0.5rem 1rem;">Detail</button>
+                        </div>
+
+                        <!-- Categorie con 4 livelli -->
+                        <div class="category-item" data-category="format">
+                            <div class="category-header">By Format</div>
+                            <ul class="subcategories">
+                                <li><a href="#" class="subcategory-link" data-filter="format-illustrated">Illustrated Books</a></li>
+                                <li>
+                                    <div class="subcategory-header">
+                                        Activity Books
+                                        <span class="submenu-toggle">▶</span>
+                                    </div>
+                                    <ul class="sub-subcategories">
+                                        <li>
+                                            <div class="sub-sub-header">
+                                                Puzzle & Games
+                                                <span class="submenu-toggle">▶</span>
+                                            </div>
+                                            <ul class="sub-sub-subcategories">
+                                                <li>
+                                                    <div class="sub-sub-header">
+                                                        Crosswords
+                                                        <span class="submenu-toggle">▶</span>
+                                                    </div>
+                                                    <ul class="sub-sub-sub-subcategories">
+                                                        <li><a href="#" class="sub-sub-sub-link" data-filter="crosswords-easy">Easy</a></li>
+                                                        <li><a href="#" class="sub-sub-sub-link" data-filter="crosswords-advanced">Advanced</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#" class="sub-sub-link" data-filter="puzzle-sudoku">Sudoku</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" class="sub-sub-link" data-filter="activity-wordsearch">Word Search</a></li>
+                                        <li><a href="#" class="sub-sub-link" data-filter="activity-coloring">Coloring Pages</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="subcategory-link" data-filter="format-teacher">Teacher’s Guides</a></li>
+                            </ul>
+                        </div>
+                        <div class="category-item" data-category="age">
+                            <div class="category-header">By Age Group</div>
+                            <ul class="subcategories">
+                                <li><a href="#" class="subcategory-link" data-filter="age-5-8">5–8 years</a></li>
+                                <li><a href="#" class="subcategory-link" data-filter="age-9-12">9–12 years</a></li>
+                                <li><a href="#" class="subcategory-link" data-filter="age-13+">13+ years</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Colonna destra -->
+                    <div class="books-content">
+                        <div class="books-banner">
+                            <img src="assets/img/books-banner.jpg" alt="Puck&Co. Books Collection">
+                        </div>
+                        <div class="books-slider">
+                            <h2 class="slider-title">New Releases</h2>
+                            <div class="books-grid" id="slider-books"></div>
+                        </div>
+                        <div class="books-grid-section">
+                            <h2 class="slider-title">All Books</h2>
+                            <div class="books-grid" id="main-books"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modale Dettaglio Libro -->
+    <div class="book-detail-modal" id="bookDetailModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeBookModal">&times;</span>
+            <div class="modal-body">
+        <div class="modal-image-section">
+          <div class="main-image-wrapper" style="position: relative; display: flex; flex-direction: column; align-items: center;">
+            <img src="" alt="" class="main-image" id="modalMainImage">
+            <button class="gallery-nav prev" id="prevImage" style="display: none;">‹</button>
+            <button class="gallery-nav next" id="nextImage" style="display: none;">›</button>
+            <div class="image-counter" id="imageCounter" style="display: none;">1 / 1</div>
+          </div>
+          <div class="thumbnails" id="modalThumbnails"></div>
+        </div>
+                <div class="modal-info-section">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-meta">
+                        <h4>Dimensions</h4>
+                        <p id="modalDimensions"></p>
+                    </div>
+                    <a href="#" class="modal-amazon-btn" id="modalAmazonBtn" target="_blank">View on Amazon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-wrapper">
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-left"></div>
+                    <div class="footer-center">
+                        <div class="footer-logo">
+                            <img src="assets/img/puck&co_logo.png" class="responsive-img" alt="Puck&Co." />
+                        </div>
+                        <p class="footer-text">© 2024 Puck&Co. All rights reserved.</p>
+                        <p class="footer-text">Stories that shape champions on and off the ice</p>
+                    </div>
+                    <div class="footer-right"></div>
+                </div>
+            </div>
+        </footer>
+        <div class="privacy-container">
+            <span id="privacy-link" class="footer-privacy-link" role="button" tabindex="0">Policy Privacy</span>
+        </div>
+    </div>
+
+    <div class="modal" id="privacyModal" style="display:none;">
+        <div class="modal-content" style="max-width:700px;">
+            <span class="close-modal" id="closePrivacyModal">&times;</span>
+            <div id="privacyContent" style="max-height:60vh; overflow-y:auto;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Dati libri con descrizioni, dimensioni e galleria immagini
+        const books = [
+            { 
+                id: "book1", 
+                title: "Hockey Heroes Vol.1", 
+                cover: "assets/img/books/en/book1.jpg",
+                gallery: [
+                    "assets/img/books/en/book1.jpg",
+                    "assets/img/books/en/book3.jpg",
+                    "assets/img/books/en/book4.jpg",
+                    "assets/img/books/en/book5.jpg"
+                ],
+                amazon: "https://amazon.com/book1", 
+                format: "illustrated", 
+                age: "5-8",
+                description: "Join young hockey players as they learn teamwork and fair play through exciting adventures on the ice.Join young hockey players as they learn teamwork and fair play through exciting adventures on the ice.",
+                dimensions: "8.5 x 11 inches • 48 pages • Full color"
+            },
+            { 
+                id: "book2", 
+                title: "Champions of the Ice", 
+                cover: "assets/img/books/en/book2.jpg",
+                gallery: [
+                    "assets/img/books/en/book3.jpg",
+                    "assets/img/books/en/book4.jpg",
+                    "assets/img/books/en/book5.jpg",
+                    "assets/img/books/en/book6.jpg"
+                ],
+                amazon: "https://amazon.com/book2", 
+                format: "illustrated", 
+                age: "9-12",
+                description: "A thrilling story about perseverance, leadership, and the true spirit of competition in youth hockey.",
+                dimensions: "8.5 x 11 inches • 64 pages • Full color"
+            },
+            { 
+                id: "book3", 
+                title: "Legacy of the Rink", 
+                cover: "assets/img/books/book3.jpg",
+                gallery: [
+                    "assets/img/books/book3.jpg",
+                    "assets/img/books/book3-spread1.jpg",
+                    "assets/img/books/book3-spread2.jpg",
+                    "assets/img/books/book3-spine.jpg"
+                ],
+                amazon: "https://amazon.com/book3", 
+                format: "illustrated", 
+                age: "13+",
+                description: "Explore the deeper values of hockey through the journey of a team facing real-world challenges.",
+                dimensions: "8.5 x 11 inches • 80 pages • Full color"
+            },
+            { 
+                id: "book4", 
+                title: "Easy Hockey Crosswords", 
+                cover: "assets/img/books/book4.jpg",
+                gallery: [
+                    "assets/img/books/book4.jpg",
+                    "assets/img/books/book4-sample1.jpg",
+                    "assets/img/books/book4-sample2.jpg"
+                ],
+                amazon: "https://amazon.com/book4", 
+                format: "activity", 
+                activityType: "crosswords-easy", 
+                age: "9-12",
+                description: "Fun and educational crossword puzzles themed around hockey rules, teams, and history.",
+                dimensions: "8.5 x 11 inches • 32 pages • Black & white"
+            },
+            { 
+                id: "book5", 
+                title: "Advanced Hockey Crosswords", 
+                cover: "assets/img/books/book5.jpg",
+                gallery: [
+                    "assets/img/books/book5.jpg",
+                    "assets/img/books/book5-sample1.jpg",
+                    "assets/img/books/book5-sample2.jpg"
+                ],
+                amazon: "https://amazon.com/book5", 
+                format: "activity", 
+                activityType: "crosswords-advanced", 
+                age: "13+",
+                description: "Challenging crosswords for serious hockey fans and trivia enthusiasts.",
+                dimensions: "8.5 x 11 inches • 32 pages • Black & white"
+            },
+            { 
+                id: "book6", 
+                title: "Hockey Sudoku Challenge", 
+                cover: "assets/img/books/book6.jpg",
+                gallery: [
+                    "assets/img/books/book6.jpg",
+                    "assets/img/books/book6-puzzle1.jpg",
+                    "assets/img/books/book6-puzzle2.jpg"
+                ],
+                amazon: "https://amazon.com/book6", 
+                format: "activity", 
+                activityType: "puzzle-sudoku", 
+                age: "9-12",
+                description: "Sudoku puzzles with a hockey twist — perfect for developing logic skills.",
+                dimensions: "8.5 x 11 inches • 32 pages • Black & white"
+            },
+            { 
+                id: "book7", 
+                title: "Hockey Word Search", 
+                cover: "assets/img/books/book7.jpg",
+                gallery: [
+                    "assets/img/books/book7.jpg",
+                    "assets/img/books/book7-page1.jpg",
+                    "assets/img/books/book7-page2.jpg"
+                ],
+                amazon: "https://amazon.com/book7", 
+                format: "activity", 
+                activityType: "activity-wordsearch", 
+                age: "5-8",
+                description: "Simple word searches featuring hockey terms and equipment for young learners.",
+                dimensions: "8.5 x 11 inches • 24 pages • Black & white"
+            },
+            { 
+                id: "book8", 
+                title: "Pro Hockey Word Search", 
+                cover: "assets/img/books/book8.jpg",
+                gallery: [
+                    "assets/img/books/book8.jpg",
+                    "assets/img/books/book8-advanced1.jpg",
+                    "assets/img/books/book8-advanced2.jpg"
+                ],
+                amazon: "https://amazon.com/book8", 
+                format: "activity", 
+                activityType: "activity-wordsearch", 
+                age: "9-12",
+                description: "Advanced word searches with NHL teams, players, and historical facts.",
+                dimensions: "8.5 x 11 inches • 24 pages • Black & white"
+            },
+            { 
+                id: "book9", 
+                title: "Hockey Coloring Fun", 
+                cover: "assets/img/books/book9.jpg",
+                gallery: [
+                    "assets/img/books/book9.jpg",
+                    "assets/img/books/book9-coloring1.jpg",
+                    "assets/img/books/book9-coloring2.jpg",
+                    "assets/img/books/book9-coloring3.jpg"
+                ],
+                amazon: "https://amazon.com/book9", 
+                format: "activity", 
+                activityType: "activity-coloring", 
+                age: "5-8",
+                description: "Creative coloring pages featuring hockey scenes, players, and equipment.",
+                dimensions: "8.5 x 11 inches • 40 pages • Black & white"
+            },
+            { 
+                id: "book10", 
+                title: "Teacher's Guide: Hockey Values", 
+                cover: "assets/img/books/book10.jpg",
+                gallery: [
+                    "assets/img/books/book10.jpg",
+                    "assets/img/books/book10-lesson1.jpg",
+                    "assets/img/books/book10-lesson2.jpg"
+                ],
+                amazon: "https://amazon.com/book10", 
+                format: "teacher", 
+                age: "all",
+                description: "Lesson plans and discussion guides to teach sportsmanship and teamwork through hockey.",
+                dimensions: "8.5 x 11 inches • 56 pages • Black & white"
+            },
+            { 
+                id: "book11", 
+                title: "Classroom Activities: Ice Hockey", 
+                cover: "assets/img/books/book11.jpg",
+                gallery: [
+                    "assets/img/books/book11.jpg",
+                    "assets/img/books/book11-worksheet1.jpg",
+                    "assets/img/books/book11-worksheet2.jpg"
+                ],
+                amazon: "https://amazon.com/book11", 
+                format: "teacher", 
+                age: "all",
+                description: "Printable worksheets and group activities for educators.",
+                dimensions: "8.5 x 11 inches • 48 pages • Black & white"
+            },
+            { 
+                id: "book12", 
+                title: "Team Spirit Workbook", 
+                cover: "assets/img/books/book12.jpg",
+                gallery: [
+                    "assets/img/books/book12.jpg",
+                    "assets/img/books/book12-activity1.jpg",
+                    "assets/img/books/book12-activity2.jpg",
+                    "assets/img/books/book12-activity3.jpg"
+                ],
+                amazon: "https://amazon.com/book12", 
+                format: "activity", 
+                activityType: "activity-coloring", 
+                age: "9-12",
+                description: "Interactive workbook combining coloring, puzzles, and reflection exercises.",
+                dimensions: "8.5 x 11 inches • 52 pages • Black & white"
+            }
+        ];
+
+        function renderBooks(container, bookList) {
+            container.innerHTML = '';
+            bookList.forEach(book => {
+                const card = document.createElement('div');
+                card.className = 'book-card';
+                card.innerHTML = `
+                    <img src="${book.cover}" alt="${book.title}">
+                    <h4>${book.title}</h4>
+                    <button class="btn btn-secondary detail-btn" data-id="${book.id}">Detail</button>
+                `;
+                container.appendChild(card);
+            });
+
+            // Aggiungi event listener ai pulsanti Detail
+            document.querySelectorAll('.detail-btn').forEach(btn => {
+                btn.addEventListener('click', () => openBookDetail(btn.dataset.id));
+            });
+        }
+
+        let currentImageIndex = 0;
+        let currentGallery = [];
+
+        function openBookDetail(bookId) {
+            const book = books.find(b => b.id === bookId);
+            if (!book) return;
+
+            // Setup galleria
+            currentGallery = book.gallery || [book.cover];
+            currentImageIndex = 0;
+
+            // Popola il modale
+            updateMainImage();
+            document.getElementById('modalTitle').textContent = book.title;
+            document.getElementById('modalDescription').textContent = book.description;
+            document.getElementById('modalDimensions').textContent = book.dimensions;
+            document.getElementById('modalAmazonBtn').href = book.amazon;
+
+            // Crea galleria di miniature
+            createThumbnails(book);
+
+            // Mostra/nascondi controlli navigazione
+            const showNavigation = currentGallery.length > 1;
+            document.getElementById('prevImage').style.display = showNavigation ? 'flex' : 'none';
+            document.getElementById('nextImage').style.display = showNavigation ? 'flex' : 'none';
+            document.getElementById('imageCounter').style.display = showNavigation ? 'block' : 'none';
+
+            // Mostra modale
+            document.getElementById('bookDetailModal').style.display = 'block';
+        }
+
+        function updateMainImage() {
+      const mainImage = document.getElementById('modalMainImage');
+      const counter = document.getElementById('imageCounter');
+      mainImage.src = currentGallery[currentImageIndex];
+      mainImage.alt = `Immagine ${currentImageIndex + 1}`;
+      counter.textContent = `${currentImageIndex + 1} / ${currentGallery.length}`;
+      // Aggiorna miniature attive
+      document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentImageIndex);
+      });
+        }
+
+        function createThumbnails(book) {
+            const thumbnailsContainer = document.getElementById('modalThumbnails');
+            thumbnailsContainer.innerHTML = '';
+            
+            currentGallery.forEach((imageSrc, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageSrc;
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.dataset.index = index;
+                thumbnail.alt = `${book.title} - Image ${index + 1}`;
+                
+                thumbnail.addEventListener('click', () => {
+                    currentImageIndex = parseInt(thumbnail.dataset.index);
+                    updateMainImage();
+                });
+                
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+        }
+
+        function navigateGallery(direction) {
+            if (direction === 'next') {
+                currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+            } else {
+                currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+            }
+            updateMainImage();
+        }
+
+        function showFeaturedBook() {
+            const randomBook = books[Math.floor(Math.random() * books.length)];
+            document.querySelector('.featured-cover').src = randomBook.cover;
+            document.querySelector('.featured-title').textContent = randomBook.title;
+            document.querySelector('.featured-detail-btn').setAttribute('data-id', randomBook.id);
+        }
+
+        function closeSiblings(element, selector) {
+            const siblings = element.parentElement.querySelectorAll(selector);
+            siblings.forEach(sibling => {
+                if (sibling !== element) {
+                    if (sibling.classList.contains('open')) {
+                        sibling.classList.remove('open');
+                    }
+                    const subSub = sibling.querySelector('.sub-subcategories');
+                    if (subSub) subSub.classList.remove('open');
+                    const subSubSub = sibling.querySelector('.sub-sub-subcategories');
+                    if (subSubSub) subSubSub.classList.remove('open');
+                    const subSubSubSub = sibling.querySelector('.sub-sub-sub-subcategories');
+                    if (subSubSubSub) subSubSubSub.classList.remove('open');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showFeaturedBook();
+            renderBooks(document.getElementById('main-books'), books);
+            renderBooks(document.getElementById('slider-books'), books.slice(0, 4));
+            
+            // Pulsante Detail per featured book
+            document.querySelector('.featured-detail-btn').addEventListener('click', function() {
+        const bookId = this.getAttribute('data-id');
+        if (bookId) openBookDetail(bookId);
+    });
+            
+            // Gestione categorie
+            document.querySelectorAll('.category-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const categoryItem = header.closest('.category-item');
+                    const isOpen = categoryItem.classList.contains('open');
+                    closeSiblings(categoryItem, '.category-item');
+                    categoryItem.classList.toggle('open', !isOpen);
+                });
+            });
+
+            document.querySelectorAll('.subcategory-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const subcategoryItem = header.closest('li');
+                    const subSub = subcategoryItem.querySelector('.sub-subcategories');
+                    const isOpen = subSub && subSub.classList.contains('open');
+                    closeSiblings(subcategoryItem, 'li');
+                    if (subSub) {
+                        subSub.classList.toggle('open', !isOpen);
+                        header.querySelector('.submenu-toggle').style.transform = !isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.sub-sub-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const subSubItem = header.closest('li');
+                    const subSubSub = subSubItem.querySelector('.sub-sub-subcategories');
+                    const isOpen = subSubSub && subSubSub.classList.contains('open');
+                    closeSiblings(subSubItem, 'li');
+                    if (subSubSub) {
+                        subSubSub.classList.toggle('open', !isOpen);
+                        header.querySelector('.submenu-toggle').style.transform = !isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.sub-sub-subcategories .sub-sub-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const subSubSubItem = header.closest('li');
+                    const subSubSubSub = subSubSubItem.querySelector('.sub-sub-sub-subcategories');
+                    const wasOpen = subSubSubSub && subSubSubSub.classList.contains('open');
+                    closeSiblings(subSubSubItem, 'li');
+                    if (subSubSubSub) {
+                        subSubSubSub.classList.toggle('open', !wasOpen);
+                        header.querySelector('.submenu-toggle').style.transform = !wasOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.subcategory-link, .sub-sub-link, .sub-sub-sub-link').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.querySelectorAll('[class*="link"]').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+        });
+
+        // Event listeners per navigazione galleria
+        document.getElementById('prevImage').addEventListener('click', () => navigateGallery('prev'));
+        document.getElementById('nextImage').addEventListener('click', () => navigateGallery('next'));
+
+        // Navigazione da tastiera
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('bookDetailModal');
+            if (modal.style.display === 'block') {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    navigateGallery('prev');
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    navigateGallery('next');
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    modal.style.display = 'none';
+                }
+            }
+        });
+
+        // Chiusura modale libro
+        document.getElementById('closeBookModal').addEventListener('click', () => {
+            document.getElementById('bookDetailModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('bookDetailModal')) {
+                document.getElementById('bookDetailModal').style.display = 'none';
+            }
+        });
+
+        // Script per il link "Policy Privacy"
+        document.getElementById('privacy-link').addEventListener('click', function() {
+            const privacyModal = document.getElementById('privacyModal');
+            privacyModal.style.display = 'block';
+        });
+
+        document.getElementById('closePrivacyModal').addEventListener('click', function() {
+            const privacyModal = document.getElementById('privacyModal');
+            privacyModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            const privacyModal = document.getElementById('privacyModal');
+            if (event.target === privacyModal) {
+                privacyModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
