@@ -251,7 +251,8 @@
         .book-card .btn {
           padding: 0.5rem 1rem; /* Further reduced horizontal padding to make the button narrower */
           font-size: 0.95rem;
-          margin: 0 0.5rem 1rem;
+          margin: 0 0.5
+          rem 1rem;
           margin-top: auto; /* Pushes the button to the bottom */
           margin-bottom: 0.5rem; /* Keeps it 0.5rem from the bottom edge */
         }
@@ -473,12 +474,38 @@
             </a>
             <nav class="nav" aria-label="Main navigation">
                 <a href="index.html">Home</a>
-                <a href="books.html" aria-current="page">Books</a>
-                <a href="index.html#attivita">Free Resources</a>
+                <a href="books.html">Books</a>
+                <a href="resources.html">Free Resources</a>
                 <a href="index.html#contatti">Contact</a>
             </nav>
         </div>
     </header>
+
+    <script>
+    (function(){
+      function setActiveNav(){
+        var navLinks = document.querySelectorAll('.nav a');
+        var path = window.location.pathname.split('/').pop() || 'index.html';
+        var hash = window.location.hash || '';
+        navLinks.forEach(function(link){
+          var href = link.getAttribute('href') || '';
+          var parts = href.split('#');
+          var hrefFile = parts[0] || 'index.html';
+          var hrefHash = parts[1] ? ('#' + parts[1]) : '';
+          if(hrefFile === path){
+            if(hrefHash){
+              if(hrefHash === hash) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current');
+            } else {
+              link.setAttribute('aria-current','page');
+            }
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+      document.addEventListener('DOMContentLoaded', setActiveNav);
+    })();
+    </script>
 
     <main>
         <section class="books-page">

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puck&Co. • Hockey per Giovani Campioni</title>
-   
-    <style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Risorse gratuite • Puck&Co.</title>
+  <link rel="icon" href="assets/img/puck&co_favicon.png">
+  <style>
         /* Footer privacy link in basso a destra */
         .footer-privacy-link {
           position: absolute;
@@ -67,21 +67,31 @@
           #language-list { right: 1rem; left: 1rem; min-width: auto; }
         }
 
-        /* Hero */
-        .hero { padding:6rem 0; background:linear-gradient(135deg, var(--ice-gray) 0%, var(--snow-white) 100%); position:relative; overflow:hidden; }
-        .hero::before { content:''; position:absolute; top:-50px; right:-50px; width:200px; height:200px; background:var(--gold); border-radius:50%; opacity:.1; }
-        .hero::after { content:''; position:absolute; bottom:-80px; left:-80px; width:300px; height:300px; background:var(--primary-blue); border-radius:50%; opacity:.05; }
-        .hero h1 { font-family:'Fredoka',sans-serif; font-size:3.5rem; font-weight:700; line-height:1.1; margin-bottom:1.5rem; color:var(--dark-text); letter-spacing:-1px; }
-        .hero h1 span { color:var(--primary-blue); }
-        .hero p { font-size:1.25rem; color:var(--dark-text); margin-bottom:2.5rem; font-weight:400; opacity:.9; }
-        .hero-buttons { display:flex; gap:1.5rem; }
+  /* Hero */
+  .hero{padding:4.5rem 0;background:linear-gradient(135deg,var(--ice-gray) 0%, var(--snow-white) 100%);text-align:center}
+  .hero h1{font-family:'Fredoka',sans-serif;font-size:2.25rem;margin-bottom:.75rem;color:var(--dark-text)}
+  .hero p{opacity:.9;margin-bottom:1.25rem}
 
-        /* Buttons */
-        .btn { padding:1rem 2.5rem; border-radius:2rem; font-weight:600; text-decoration:none; display:inline-block; font-size:1.1rem; transition:all .3s ease; text-align:center; border:2px solid transparent; }
-        .btn-primary { background:var(--primary-blue); color:var(--snow-white); box-shadow:0 6px 15px rgba(49,130,188,.4); }
-        .btn-primary:hover { background:#256a99; transform:translateY(-3px); box-shadow:0 10px 25px rgba(49,130,188,.6); }
-        .btn-secondary { background:transparent; color:var(--primary-blue); border-color:var(--primary-blue); }
-        .btn-secondary:hover { background:var(--primary-blue); color:var(--snow-white); transform:translateY(-3px); box-shadow:0 10px 25px rgba(49,130,188,.4); }
+  /* Resources grid */
+  .section-header{margin:2.5rem 0 1rem;text-align:center}
+  .section-header h2{font-family:'Fredoka',sans-serif;font-size:1.5rem;color:var(--dark-text);margin-bottom:.5rem}
+  .resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+  .resource-card{background:var(--ice-gray);padding:1.25rem;border-radius:12px;text-align:left;box-shadow:0 6px 18px rgba(49,130,188,.06);display:flex;flex-direction:column;justify-content:space-between}
+  .resource-card h3{font-size:1.05rem;margin-bottom:.5rem}
+  .resource-card p{font-size:.95rem;opacity:.9}
+
+  /* Games grid */
+  .games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:.75rem}
+  .game-card{background:linear-gradient(180deg,var(--snow-white),#fff);padding:1rem;border-radius:12px;border:1px solid rgba(0,0,0,.04);box-shadow:0 4px 12px rgba(0,0,0,.04);display:flex;flex-direction:column;justify-content:space-between}
+  .game-card h3{font-size:1rem;margin-bottom:.5rem}
+  .game-card p{font-size:.9rem;opacity:.85}
+
+  /* Buttons */
+  .btn{display:inline-block;padding:.6rem 1.2rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--primary-blue);color:var(--snow-white)}
+  .btn-primary:hover{background:#256a99}
+  .btn-secondary{background:transparent;color:var(--primary-blue);border-color:var(--primary-blue)}
+  .btn-secondary:hover{background:var(--primary-blue);color:var(--snow-white)}
 
         /* Features */
         .features { padding:6rem 0; background:var(--snow-white); }
@@ -378,14 +388,14 @@
             overflow-y: auto;
         }
 
-        /* Ensure only one scrollbar in Privacy Policy modal (intentionally unused placeholder) */
-        /* #privacyModal { */
-        /*     Ripristino il codice originale (unused) */
-        /* } */
+    /* Ensure only one scrollbar in Privacy Policy modal (intentionally unused placeholder) */
+    /* #privacyModal { */
+    /*     Ripristino il codice originale (unused) */
+    /* } */
 
-        /* body.modal-open { */
-        /*     Rimuovo la classe aggiunta (unused) */
-        /* } */
+    /* body.modal-open { */
+    /*     Rimuovo la classe aggiunta (unused) */
+    /* } */
 
         /* Ensure only one scrollbar in Privacy Policy modal */
         #privacyModal {
@@ -411,7 +421,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Header -->
     <header class="header">
@@ -428,134 +437,122 @@
         </div>
     </header>
 
-    <script>
-    (function(){
-      function setActiveNav(){
-        var navLinks = document.querySelectorAll('.nav a');
-        var path = window.location.pathname.split('/').pop() || 'index.html';
-        var hash = window.location.hash || '';
-        navLinks.forEach(function(link){
-          var href = link.getAttribute('href') || '';
-          var parts = href.split('#');
-          var hrefFile = parts[0] || 'index.html';
-          var hrefHash = parts[1] ? ('#' + parts[1]) : '';
-          if(hrefFile === path){
-            if(hrefHash){
-              if(hrefHash === hash) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current');
-            } else {
-              link.setAttribute('aria-current','page');
-            }
-          } else {
-            link.removeAttribute('aria-current');
-          }
-        });
-      }
-      document.addEventListener('DOMContentLoaded', setActiveNav);
-    })();
-    </script>
-
-    <!-- Hero Section -->
+  <main>
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 id="hero-title">Welcome to <span>Puck&Co.</span></h1>
-                <p id="hero-subtitle">Stories, adventures and ice hockey values for children and teenagers. We shape young champions on and off the ice.</p>
-                <div class="hero-buttons">
-                    <a href="books.html" class="btn btn-primary" id="discover-books">Discover Books</a>
-                    <a href="#attivita" class="btn btn-secondary" id="browse-activities">Educational Activities</a>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+        <h1>Risorse gratuite</h1>
+        <p>Scarica attività, pagine da colorare e materiali stampabili. Prova anche i nostri semplici giochi online pensati per i più piccoli.</p>
+      </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="libri">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="features-title">What We Offer</h2>
-                <p id="features-subtitle">Resources designed to introduce young people to the world of ice hockey in a fun and educational way</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3 id="feature1-title">Illustrated Books</h3>
-                    <p id="feature1-text">Exciting stories following the adventures of young players, teaching values like teamwork and fair play.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3 id="feature2-title">Educational Activities</h3>
-                    <p id="feature2-text">Coloring pages, quizzes and educational games to learn hockey rules and develop coordination.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3 id="feature3-title">Sports Values</h3>
-                    <p id="feature3-text">Programs that promote inclusion, courage, respect and team spirit through the world of hockey.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="container" aria-labelledby="downloads-title">
+      <div class="section-header">
+        <h2 id="downloads-title">Materiale da scaricare</h2>
+        <p style="opacity:.85;max-width:720px;margin:0 auto">Tutti i materiali sono gratuiti: scaricali, stampali e usali in classe o a casa.</p>
+      </div>
 
-    <!-- Values Section -->
-    <section class="values">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="values-title">Core Values</h2>
-                <p id="values-subtitle">The principles that guide our stories and educational activities.</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h4 id="value1-title">Teamwork</h4>
-                    <p id="value1-text">We champion collaboration and trust among teammates.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">⚖️</div>
-                    <h4 id="value2-title">Fair Play</h4>
-                    <p id="value2-text">Respect for rules, opponents and officials at all times.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">💪</div>
-                    <h4 id="value3-title">Perseverance</h4>
-                    <p id="value3-text">Commitment and determination through challenges.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">❤️</div>
-                    <h4 id="value4-title">Inclusion</h4>
-                    <p id="value4-text">Welcoming diversity and creating a safe environment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="resources-grid" aria-live="polite">
+        <article class="resource-card">
+          <div>
+            <h3>Pack: Pagine da colorare</h3>
+            <p>Un set di 12 pagine da colorare a tema hockey, adatte ai bambini della scuola primaria.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center">
+            <a class="btn btn-primary" href="assets/resources/coloring-pages-pack.pdf" download>Scarica PDF</a>
+            <small style="opacity:.8">PDF • 5 MB</small>
+          </div>
+        </article>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contatti">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="contact-title">Contact</h2>
-                <p id="contact-subtitle">For teachers, coaches, bookstores and collaborations</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <button class="btn btn-primary" id="openEmailModal" style="width: auto; padding: 0.75rem 2rem;">Contact Us</button>
-                    <br><br>
-                    <p id="contact-description">We're here to support young people's growth through sports and reading.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <article class="resource-card">
+          <div>
+            <h3>Schede Attività</h3>
+            <p>Fogli attività con esercizi, quiz semplici e giochi di osservazione per stimolare la riflessione sportiva.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center">
+            <a class="btn btn-primary" href="assets/resources/activity-sheets.pdf" download>Scarica PDF</a>
+            <small style="opacity:.8">PDF • 4 MB</small>
+          </div>
+        </article>
 
-    <!-- Email Popup Modal -->
-    <div class="modal" id="emailModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h4 id="email-modal-title">Contact Us</h4>
-            <p id="email-modal-instructions">Copy the email address below to send us a message:</p>
-            <p class="email-address" style="color: #2b75a9; background-color: #ffffff; padding: 0.5rem; border-radius: 4px;">
-                &#x6d;&#x79;&#x40;&#x70;&#x75;&#x63;&#x6b;&#x61;&#x6e;&#x64;&#x63;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;
-            </p>
-            <button class="copy-btn" id="copyEmail">Copy Email</button>
-        </div>
-    </div>
+        <article class="resource-card">
+          <div>
+            <h3>Esercizi per allenatori</h3>
+            <p>Una raccolta di semplici drill e giochi da usare durante gli allenamenti giovanili.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center">
+            <a class="btn btn-primary" href="assets/resources/practice-drills.pdf" download>Scarica PDF</a>
+            <small style="opacity:.8">PDF • 2 MB</small>
+          </div>
+        </article>
+
+        <article class="resource-card">
+          <div>
+            <h3>Flashcards: Regole e segnali</h3>
+            <p>Carte illustrate per imparare le regole base e i segnali degli arbitri giocando.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center">
+            <a class="btn btn-primary" href="assets/resources/flashcards.pdf" download>Scarica PDF</a>
+            <small style="opacity:.8">PDF • 3 MB</small>
+          </div>
+        </article>
+      </div>
+
+      <div style="height:2rem"></div>
+
+      <div class="section-header" style="margin-top:2.5rem">
+        <h2>Giochi semplici online</h2>
+        <p style="opacity:.85;max-width:720px;margin:0 auto">Giochi pensati per rinforzare l'apprendimento con attività divertenti e brevi.</p>
+      </div>
+
+      <div class="games-grid">
+        <article class="game-card">
+          <div>
+            <h3>Memory: Simboli dell'hockey</h3>
+            <p>Gioco di memoria a coppie per riconoscere attrezzature e simboli dello sport.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between">
+            <a class="btn btn-secondary" href="games/memory.html" target="_blank" rel="noopener">Gioca</a>
+            <small style="opacity:.8">5 minuti</small>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div>
+            <h3>Quiz: Regole base</h3>
+            <p>Breve quiz a scelta multipla per verificare la conoscenza delle regole fondamentali.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between">
+            <a class="btn btn-secondary" href="games/quiz.html" target="_blank" rel="noopener">Gioca</a>
+            <small style="opacity:.8">3-4 domande</small>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div>
+            <h3>Coloring Online</h3>
+            <p>Versione digitale delle pagine da colorare: scegli i colori e salva il risultato.</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between">
+            <a class="btn btn-secondary" href="games/coloring.html" target="_blank" rel="noopener">Gioca</a>
+            <small style="opacity:.8">10 minuti</small>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div>
+            <h3>Mini-gioco: Precisione passaggi</h3>
+            <p>Sfida a colpire bersagli per esercitare mira e precisione (semplice, accessibile).</p>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between">
+            <a class="btn btn-secondary" href="games/skill-challenge.html" target="_blank" rel="noopener">Gioca</a>
+            <small style="opacity:.8">2-6 minuti</small>
+          </div>
+        </article>
+      </div>
+
+      <p style="margin-top:1.25rem;opacity:.85;font-size:.95rem">Se vuoi che creiamo altri materiali o giochi, contattaci: <a href="#contatti" style="color:var(--primary-blue);text-decoration:underline">Contatti</a>.</p>
+    </section>
+  </main>
 
     <!-- Footer divided in 3 columns (20% / 60% / 20%) -->
     <div class="footer-wrapper">
@@ -569,8 +566,8 @@
                         <div class="footer-logo">
                             <img src="assets/img/puck&co_logo.png" class="responsive-img" alt="Puck&Co." />
                         </div>
-                        <p class="footer-text" id="copyright">© 2024 Puck&Co. All rights reserved.</p>
-                        <p class="footer-text" id="tagline">Stories that shape champions on and off the ice</p>
+                        <p class="footer-text">© 2024 Puck&Co. All rights reserved.</p>
+                        <p class="footer-text">Stories that shape champions on and off the ice</p>
                     </div>
                     <div class="footer-right">
                         <!-- right column reserved for privacy link positioned relative to footer-wrapper -->
@@ -583,158 +580,30 @@
         </div>
     </div>
 
-    <!-- Privacy Modal (kept outside footer) -->
-    <div class="modal" id="privacyModal" style="display:none;">
-        <div class="modal-content" style="max-width:700px;">
-            <span class="close-modal" id="closePrivacyModal">&times;</span>
-            <div id="privacyContent" style="max-height:60vh; overflow-y:auto;"></div>
-        </div>
-    </div>
-
-    <script>
-    // Privacy Policy Modal logic
-    document.addEventListener('DOMContentLoaded', function() {
-    var privacyLink = document.getElementById('privacy-link');
-      var privacyModal = document.getElementById('privacyModal');
-      var privacyContent = document.getElementById('privacyContent');
-      var closePrivacyModal = document.getElementById('closePrivacyModal');
-                if(privacyLink && privacyModal && privacyContent && closePrivacyModal) {
-                function openPrivacy() {
-                    // Try to fetch the page HTML first
-                    privacyContent.innerHTML = '<p>Loading privacy policy…</p>';
-                    fetch('privacy.policy.html')
-                        .then(function(res) {
-                            if (!res.ok) throw new Error('Fetch failed');
-                            return res.text();
-                        })
-                        .then(function(html) {
-                            var temp = document.createElement('div');
-                            temp.innerHTML = html;
-                            var main = temp.querySelector('main') || temp.querySelector('body') || temp;
-                            privacyContent.innerHTML = main ? main.innerHTML : 'Errore caricamento privacy.';
-                            privacyModal.style.display = 'block';
-                        })
-                        .catch(function() {
-                            // Fallback: use an iframe when fetch is blocked (file:// or CORS)
-                            privacyContent.innerHTML = '';
-                            var iframe = document.createElement('iframe');
-                            iframe.src = 'privacy.policy.html';
-                            iframe.style.width = '100%';
-                            iframe.style.height = '60vh';
-                            iframe.style.border = 'none';
-                            privacyContent.appendChild(iframe);
-                            privacyModal.style.display = 'block';
-                        });
-                }
-                privacyLink.addEventListener('click', function(e) { e.preventDefault(); openPrivacy(); });
-                privacyLink.addEventListener('keypress', function(e) { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPrivacy(); } });
-        closePrivacyModal.addEventListener('click', function() {
-          privacyModal.style.display = 'none';
-        });
-        window.addEventListener('click', function(e) {
-          if(e.target === privacyModal) privacyModal.style.display = 'none';
-        });
-      }
-    });
-    </script>
-
-    <script>
-        // Open modal
-        document.getElementById('openEmailModal').addEventListener('click', function() {
-            document.getElementById('emailModal').style.display = 'block';
-            // Do not add modal-open class to keep scrollbar visible
-        });
-
-        // Close modal
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('emailModal').style.display = 'none';
-            // No need to remove modal-open class since it's not added
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            var emailModal = document.getElementById('emailModal');
-            if (e.target === emailModal) {
-                emailModal.style.display = 'none';
-            }
-        });
-
-        // Copy email to clipboard
-        document.getElementById('copyEmail').addEventListener('click', function() {
-            const hexEmail = '\x6d\x79\x40\x70\x75\x63\x6b\x61\x6e\x64\x63\x6f\x2e\x63\x6f\x6d';
-            const email = hexEmail.replace(/\\x([0-9A-Fa-f]{2})/g, (match, p1) => String.fromCharCode(parseInt(p1, 16)));
-            navigator.clipboard.writeText(email);
-        });
-    </script>
-
-    <script>
-        // Update button text to 'Copied!'
-        document.getElementById('copyEmail').addEventListener('click', function() {
-            var copyButton = this;
-            copyButton.textContent = 'Copied!';
-            setTimeout(function() {
-                copyButton.textContent = 'Copy Email'; // Revert back after 1.3 seconds
-            }, 1300);
-        });
-    </script>
-
-    <script>
-    // Update Contact Us modal with hexadecimal email
-    document.getElementById('copyEmail').addEventListener('click', function() {
-        const hexEmail = '\x6d\x79\x40\x70\x75\x63\x6b\x61\x6e\x64\x63\x6f\x2e\x63\x6f\x6d';
-        const email = hexEmail.replace(/\\x([0-9A-Fa-f]{2})/g, (match, p1) => String.fromCharCode(parseInt(p1, 16)));
-        navigator.clipboard.writeText(email);
-    });
-    </script>
-
-    <script>
-    // Ensure consistent scrollbar behavior for Privacy Policy modal
-    document.addEventListener('DOMContentLoaded', function() {
-        var privacyModal = document.getElementById('privacyModal');
-        var closePrivacyModal = document.getElementById('closePrivacyModal');
-
-        function openPrivacyModal() {
-            privacyModal.style.display = 'block';
-            // Do not add modal-open class to keep scrollbar visible
+  <script>
+  (function(){
+    function setActiveNav(){
+      var navLinks = document.querySelectorAll('.nav a');
+      var path = window.location.pathname.split('/').pop() || 'index.html';
+      var hash = window.location.hash || '';
+      navLinks.forEach(function(link){
+        var href = link.getAttribute('href') || '';
+        var parts = href.split('#');
+        var hrefFile = parts[0] || 'index.html';
+        var hrefHash = parts[1] ? ('#' + parts[1]) : '';
+        if(hrefFile === path){
+          if(hrefHash){
+            if(hrefHash === hash) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current');
+          } else {
+            link.setAttribute('aria-current','page');
+          }
+        } else {
+          link.removeAttribute('aria-current');
         }
-
-        function closePrivacyModalHandler() {
-            privacyModal.style.display = 'none';
-            // No need to remove modal-open class since it's not added
-        }
-
-        // Attach event listeners
-        document.getElementById('privacy-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            openPrivacyModal();
-        });
-
-        closePrivacyModal.addEventListener('click', closePrivacyModalHandler);
-        window.addEventListener('click', function(e) {
-            if (e.target === privacyModal) {
-                closePrivacyModalHandler();
-            }
-        });
-    });
-    </script>
-
-    <script>
-        // Aggiorno lo stile del pulsante e dell'email
-        const emailElement = document.querySelector('.email-address a');
-        emailElement.style.color = '#2b75a9';
-        emailElement.style.backgroundColor = '#fff';
-        emailElement.style.padding = '5px 10px';
-        emailElement.style.borderRadius = '5px';
-        emailElement.style.textDecoration = 'none';
-
-        const copyButton = document.getElementById('copyEmail');
-        copyButton.style.width = '150px'; // Imposta una larghezza fissa per entrambi gli stati
-        copyButton.addEventListener('click', function() {
-            this.textContent = 'Copied!';
-            setTimeout(() => {
-                this.textContent = 'Copy Email';
-            }, 1300);
-        });
-    </script>
+      });
+    }
+    document.addEventListener('DOMContentLoaded', setActiveNav);
+  })();
+  </script>
 </body>
 </html>
