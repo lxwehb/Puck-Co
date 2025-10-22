@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Libreria Multilingua</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ffffff;
+      color: #222;
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 1.5rem;
+    }
+    .lang-buttons {
+      margin: 1.5rem 0;
+    }
+    .lang-buttons button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .lang-buttons button:hover {
+      background: #e0e0e0;
+    }
+    .book-card {
+      display: flex;
+      gap: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      background: #fafafa;
+      align-items: flex-start;
+    }
+    .book-cover {
+      width: 120px;
+      height: auto;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .book-info {
+      flex: 1;
+    }
+    .book-info h3 {
+      margin-top: 0;
+      color: #1a73e8;
+    }
+    .book-info a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    .book-info a:hover {
+      text-decoration: underline;
+    }
+    #loading {
+      color: #666;
+    }
+    #no-books {
+      color: #d32f2f;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>La Mia Libreria</h1>
+
+  <div class="lang-buttons">
+    <button onclick="changeLanguage('it')">🇮🇹 IT</button>
+    <button onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button onclick="changeLanguage('de')">🇩🇪 DE</button>
+    <button onclick="changeLanguage('fr')">🇫🇷 FR</button>
+    <button onclick="changeLanguage('es')">🇪🇸 ES</button>
+    <button onclick="changeLanguage('nl')">🇳🇱 NL</button>
+    <button onclick="changeLanguage('pl')">🇵🇱 PL</button>
+  </div>
+
+  <div id="loading">Caricamento libri...</div>
+  <div id="no-books" style="display:none;">Nessun libro disponibile in questa lingua.</div>
+  <div id="books-container"></div>
+
+  <script>
+    const LANGUAGE_NAMES = {
+      it: 'Italiano',
+      en: 'Inglese',
+      de: 'Tedesco',
+      fr: 'Francese',
+      es: 'Spagnolo',
+      nl: 'Olandese',
+      pl: 'Polacco'
+    };
+
+    let allBooks = [];
+
+    async function init() {
+      try {
+        const response = await fetch('data_prova/books_prova.json');
+        if (!response.ok) throw new Error('File books.json non trovato');
+        allBooks = await response.json();
+        changeLanguage('it');
+      } catch (err) {
+        document.getElementById('loading').textContent = `❌ Errore: ${err.message}`;
+      }
+    }
+
+    function getCoverPath(bookId) {
+      // Assumiamo estensione .jpg; puoi adattare se usi .png
+      return `assets/img/book/${bookId}.jpg`;
+    }
+
+    function renderBooks(langCode) {
+      const targetLanguage = LANGUAGE_NAMES[langCode];
+      const filtered = allBooks.filter(book => book.language === targetLanguage);
+
+      const container = document.getElementById('books-container');
+      const noBooksEl = document.getElementById('no-books');
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        noBooksEl.style.display = 'block';
+      } else {
+        noBooksEl.style.display = 'none';
+        container.innerHTML = filtered.map(book => {
+          const cover = getCoverPath(book.book_id || 'default');
+          return `
+            <div class="book-card">
+              <img src="${escapeHtml(cover)}" alt="Copertina ${escapeHtml(book.title || '')}" class="book-cover" onerror="this.src='assets/img/book/default.jpg'">
+              <div class="book-info">
+                <h3>${escapeHtml(book.title || '')} ${escapeHtml(book.subtitle || '')}</h3>
+                <p><strong>Prezzo:</strong> ${escapeHtml(book.price || '')}</p>
+                <p>
+                  <a href="${escapeHtml(book.link || '#')}" target="_blank" rel="noopener">
+                    Acquista su Amazon ${escapeHtml(book.platform || '')}
+                  </a>
+                </p>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function changeLanguage(langCode) {
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('books-container').innerHTML = '';
+      document.getElementById('no-books').style.display = 'none';
+
+      setTimeout(() => {
+        renderBooks(langCode);
+        document.getElementById('loading').style.display = 'none';
+      }, 100);
+    }
+
+    function escapeHtml(text) {
+      if (typeof text !== 'string') return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    init();
+  </script>
+</body>
+</html>
+

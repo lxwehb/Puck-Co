@@ -1,0 +1,20 @@
+[
+  {
+    "book_id": "Goodnight-Puck",
+    "title": "Buonanotte",
+    "subtitle": "Grande Hockey-Puck!",
+    "price": "€ 10,99",
+    "language": "Italiano",
+    "link": "https://www.amazon.it/dp/B0FN3QN222",
+    "platform": "IT"
+  },
+  {
+    "book_id": "Goodnight-Puck",
+    "title": "Gute Nacht",
+    "subtitle": "Großer Hockey-Puck!",
+    "price": "€ 12,20",
+    "language": "Tedesco",
+    "link": "https://www.amazon.de/dp/B0FMS7J22",
+    "platform": "DE"
+  }
+]
